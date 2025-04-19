@@ -1,0 +1,12 @@
+.contactList {
+  max-width: 1280px;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.contact {
+}

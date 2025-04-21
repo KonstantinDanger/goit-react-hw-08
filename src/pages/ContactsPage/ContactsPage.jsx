@@ -8,7 +8,7 @@ import {
   selectIsLoading,
 } from "../../redux/contacts/contactsSelectors";
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contacts/contactsOps";
+import { fetchContacts } from "../../redux/contacts/operations";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();

@@ -1,32 +1,21 @@
 import "./App.css";
 
-import ContactForm from "../ContactForm/ContactForm";
-import SearchBox from "../SearchBox/SearchBox";
-import ContactList from "../ContactList/ContactList";
+import Layout from "../Layout/Layout";
+
+import { selectIsRefreshing } from "../../redux/auth/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { selectError, selectIsLoading } from "../../redux/contactsSlice";
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contactsOps";
+import { refreshUser } from "../../redux/auth/operations";
 
 function App() {
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
+  const isUserRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {!error && isLoading && <p>Loading data...</p>}
-      <ContactList />
-    </div>
-  );
+  return isUserRefreshing ? <div>Refreshing user...</div> : <Layout />;
 }
 
 export default App;

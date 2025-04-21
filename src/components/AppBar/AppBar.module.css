@@ -1,0 +1,16 @@
+.bar {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+.link {
+  color: aliceblue;
+  margin-right: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
